@@ -1,0 +1,21 @@
+options: 
+  charset: utf8
+
+#socialmap
+Geocode:
+  actAs: [Timestampable]
+  columns: 
+    id: 
+      type: integer(11)
+      primary: true
+      autoincrement: true
+    geocode: string(255)
+    member_id: integer(4)
+    community_id: { type: integer(11), notnull: true }
+    foreign_table: string(32)
+    foreign_id: integer(11)
+  relations:
+    Member:
+      onDelete: cascade
+    Community:
+      onDelete: cascade

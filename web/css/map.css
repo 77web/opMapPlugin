@@ -1,0 +1,17 @@
+div#map
+{
+  width:600px;
+  height:600px;
+}
+
+div#small_map
+{
+  width:180px;
+  height:180px;
+}
+
+div.maps
+{
+  width:600px;
+  height:480px;
+}

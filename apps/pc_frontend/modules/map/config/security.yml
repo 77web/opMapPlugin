@@ -1,0 +1,5 @@
+all:
+  is_secure: true
+
+community:
+  is_secure: false
