@@ -1,16 +1,16 @@
 <?php
 
-class opInitMapTask extends sfDoctrineBaseTask
+class opMapPluginInitTask extends sfDoctrineBaseTask
 {
   protected function configure()
   {
-    $this->namespace = "opInit";
-    $this->name = "map";
+    $this->namespace = "opMapPlugin";
+    $this->name = "init";
     $this->briefDescription = 'find & save geocodes in diaries already registed.';
     $this->detailedDescription = <<<EOF
 Call it with:
 
- [./symfony opInit:map]
+ [./symfony opMapPlugin:init]
 EOF;
   }
   

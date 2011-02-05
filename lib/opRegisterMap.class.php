@@ -24,57 +24,6 @@ class opRegisterMap
     }
   }
   
-  public static function listenToDiaryCommentPostCreate($args)
-  {
-    $form = $args['actionInstance']->getVar("form");
-    if($form && $form->getObject()->getId())
-    {
-      $comment = $form->getObject();
-      self::saveGeocode($comment->getBody(), get_class($comment), $comment->getId(), $comment->getMemberId());
-    }
-  }
-  
-  public static function listenToCommunityTopicEventPostCreate($args)
-  {
-    $form = $args['actionInstance']->getVar("form");
-    if($form && $fomr->getObject()->getId())
-    {
-      $obj = $form->getObject();
-      self::saveGeocode($obj->getBody(), get_class($obj), $obj->getId(), $obj->getMemberId(), $obj->getCommunityId());
-    }
-  }
-  
-  public static function listenToCommunityTopicEventPostUpdate($args)
-  {
-    $form = $args['actionInstance']->getVar("form");
-    if($form && $form->isValid())
-    {
-      $obj = $form->getObject();
-      self::saveGeocode($obj->getBody(), get_class($obj), $obj->getId(), $obj->getMemberId(), $obj->getCommunityId());
-    }
-  }
-  
-  public static function listenToCommunityTopicCommentPostCreate($args)
-  {
-    $form = $args['actionInstance']->getVar("form");
-    if($form && $form->getObject()->getId())
-    {
-      $obj = $form->getObject();
-      self::saveGeocode($obj->getBody(), get_class($obj), $obj->getId(), $obj->getMemberId(), $obj->getCommunityTopic()->getCommunityId());
-    }
-  }
-  
-  public static function listenToCommunityEventCommentPostCreate($args)
-  {
-    $form = $args['actionInstance']->getVar("form");
-    if($form && $form->getObject()->getId())
-    {
-      $obj = $form->getObject();
-      self::saveGeocode($obj->getBody(), get_class($obj), $obj->getId(), $obj->getMemberId(), $obj->getCommunityEvent()->getCommunityId());
-    }
-  }
-  
-  
   static public function saveGeocode($txt, $foreignTable, $foreignId, $memberId, $communityId=null)
   {
     $code_list = array();

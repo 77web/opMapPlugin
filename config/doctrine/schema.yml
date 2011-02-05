@@ -9,7 +9,8 @@ Geocode:
       type: integer(11)
       primary: true
       autoincrement: true
-    geocode: string(255)
+    lat: string(255)
+    lng: string(255)
     member_id: integer(4)
     community_id: { type: integer(11), notnull: true }
     foreign_table: string(32)

@@ -24,15 +24,20 @@ class PluginGeocodeTable extends Doctrine_Table
 
     foreach($newcode_list as $code)
     {
-      $obj = new Geocode();
-      $obj->setForeignId($foreignId);
-      $obj->setForeignTable($foreignTable);
-      $obj->setGeocode($code);
-      $obj->setMemberId($memberId);
-      $obj->setCommunityId($communityId);
-      $obj->save();
-      $obj->free(true);
-      unset($obj);
+      $code = explode(',', $code);
+      if(count($code)==2)
+      {
+        $obj = new Geocode();
+        $obj->setForeignId($foreignId);
+        $obj->setForeignTable($foreignTable);
+        $obj->setLat($code[0]);
+        $obj->setLng($code[1]);
+        $obj->setMemberId($memberId);
+        $obj->setCommunityId($communityId);
+        $obj->save();
+        $obj->free(true);
+        unset($obj);
+      }
     }
   }
   
