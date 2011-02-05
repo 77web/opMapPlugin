@@ -1,0 +1,10 @@
+Navigation:
+  default_navigation_diary:
+    type: "default"
+    uri: "map/member"
+    sort_order: 30
+    Translation:
+      en:
+        caption: "Map"
+      ja_JP:
+        caption: "地図"
