@@ -1,27 +1,17 @@
 window.onload = function(e){ initGmap(e); };
-window.onunload = function(e){ GUnload(e)  };
 
 function initGmap(e)
 {
-  if(typeof(geocodings)!="undefined")
+  if(geocodeCount>0)
   {
-    var div = document.getElementById('map');
-    var map = new google.maps.Map2(div);
-  
-    map.addControl(new GLargeMapControl());
+    var centerLatLng = new google.maps.LatLng(geocodeList[0]['lat'], geocodeList[0]['lng']);
+    var map = new google.maps.Map(document.getElementById('map'), { zoom: mapZoom, center: centerLatLng, mapTypeId: google.maps.MapTypeId.ROADMAP });
 
-    for(var i=0;i<geocodings.length;i++)
+    for(var i=0;i<geocodeCount;i++)
     {
-      var cd = geocodings[i].split(',');
-      var point = new google.maps.LatLng(cd[0], cd[1]);
-      if(i==0)
-      {
-        map.setCenter(point, 13);
-      }
-      var marker = new GMarker(point);
-      map.addOverlay(marker);
-      var html = urls[i]?'<a href="' + urls[i] + '">' + captions[i] + '</a>':captions[i];
-      marker.bindInfoWindowHtml(html);
+      var infoWin = new google.maps.InfoWindow({ content: '<a href="' + geocodeList[i]['url'] + '">' + geocodeList[i]['caption'] + '</a>' });
+      var marker = new google.maps.Marker({ position: new google.maps.LatLng(geocodeList[i]['lat'], geocodeList[i]['lng']), map: map, infoWin: infoWin  });
+      google.maps.event.addListener(marker, 'click', function(){ this.infoWin.open(map, this); });
     }
   }
 }

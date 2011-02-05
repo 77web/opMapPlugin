@@ -62,5 +62,11 @@ class PluginGeocodeTable extends Doctrine_Table
     return $pager;
   }
   
+  public function getMemberList($memberId, $accessMemberId, $size)
+  {
+    $q = $this->createQuery("g")->where("g.member_id = ?", $memberId)->orderBy("id DESC");
+    
+    return $q->limit($size)->execute();
+  }
 
 }
