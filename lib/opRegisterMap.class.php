@@ -24,7 +24,7 @@ class opRegisterMap
     }
   }
   
-  static public function saveGeocode($txt, $foreignTable, $foreignId, $memberId, $communityId=null)
+  static public function saveGeocode($txt, $foreignTable, $foreignId, $memberId)
   {
     $code_list = array();
     if(preg_match_all(SF_AUTO_LINK_RE, $txt, $matches, PREG_SET_ORDER)>0)
@@ -55,7 +55,7 @@ class opRegisterMap
         if($code!="")  $code_list[] = $code;
       }
     }
-    Doctrine::getTable("Geocode")->setGeocode($code_list, $foreignTable, $foreignId, $memberId, $communityId);
+    Doctrine::getTable("Geocode")->setGeocode($code_list, $foreignTable, $foreignId, $memberId);
   }
 }
 

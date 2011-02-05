@@ -3,7 +3,7 @@
  */
 class PluginGeocodeTable extends Doctrine_Table
 {
-  public function setGeocode($code_list, $foreignTable, $foreignId, $memberId, $communityId)
+  public function setGeocode($code_list, $foreignTable, $foreignId, $memberId)
   {
     $newcode_list = array();
     foreach($code_list as $code)
@@ -33,7 +33,6 @@ class PluginGeocodeTable extends Doctrine_Table
         $obj->setLat($code[0]);
         $obj->setLng($code[1]);
         $obj->setMemberId($memberId);
-        $obj->setCommunityId($communityId);
         $obj->save();
         $obj->free(true);
         unset($obj);
@@ -53,7 +52,7 @@ class PluginGeocodeTable extends Doctrine_Table
   
   public function getMemberPager($memberId, $accessMemberId, $size, $page=1)
   {
-    $q = $this->createQuery("g")->where("g.member_id = ?", $memberId)->orderBy("created_at DESC");
+    $q = $this->createQuery("g")->where("g.member_id = ?", $memberId)->orderBy("id DESC");
     
     $pager = new sfDoctrinePager("Geocode", $size);
     $pager->setQuery($q);
@@ -63,41 +62,5 @@ class PluginGeocodeTable extends Doctrine_Table
     return $pager;
   }
   
-  public function getCommunityPager($communityId, $accessMemberId, $size, $page)
-  {
-    $q = $this->createQuery("g")->where("g.community_id = ?", $communityId)->orderBy("created_at DESC");
-    $isMember = Doctrine::getTable('CommunityMember')->isMember($accessMemberId, $communityId);
-    $tables = array("CommunityTopic", "CommunityTopicComment", "CommunityEvent", "CommunityEventComment");
-    $public_flag = Doctrine::getTable("CommunityConfig")->retrieveByNameAndCommunityId("public_flag", $communityId);
-    switch($public_flag)
-    {
-      case "private":
-        if(!$isMember)
-        {
-          $tables = array();
-        }
-      case "public":
-        if($accessMemberId<1)
-        {
-          $tables = array();
-        }
-      case "expublic":
-      default:
-    }
-    if(count($tables)>0)
-    {
-      $q->andWhereIn("foreign_table", $tables);
-    }
-    else
-    {
-      $q->addWhere("foreign_table IS NULL");
-    }
-    
-    $pager = new sfDoctrinePager("Geocode", $size);
-    $pager->setQuery($q);
-    $pager->setPage($page);
-    $pager->init();
-    
-    return $pager;
-  }
+
 }
