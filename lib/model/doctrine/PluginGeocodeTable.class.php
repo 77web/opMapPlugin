@@ -65,6 +65,28 @@ class PluginGeocodeTable extends Doctrine_Table
   public function getMemberList($memberId, $accessMemberId, $size)
   {
     $q = $this->createQuery("g")->where("g.member_id = ?", $memberId)->orderBy("id DESC");
+    if($accessMemberId!=$memberId)
+    {
+      //consider public flag
+      $q->select('g.*')->addFrom('Diary d')->addWhere('d.id = g.foreign_id');
+      if($accessMemberId>0)
+      {
+        //sns member
+        $flags = array(DiaryTable::PUBLIC_FLAG_OPEN, DiaryTable::PUBLIC_FLAG_SNS);
+        //friend or not
+        if(Doctrine::getTable('MemberRelationship')->createQuery()->where('member_id_from = ? AND member_id_to = ? AND is_friend = 1', array($accessMemberId, $memberId))->count()>0)
+        {
+          $flags[] = DiaryTable::PUBLIC_FLAG_FRIEND;
+        }
+        
+        $q->andWhereIn('d.public_flag', $flags);
+      }
+      else
+      {
+        //not a sns member
+        $q->addWhere('d.is_open = 1');
+      }
+    }
     
     return $q->limit($size)->execute();
   }

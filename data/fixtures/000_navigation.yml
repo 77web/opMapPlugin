@@ -1,10 +1,19 @@
 Navigation:
   default_navigation_map:
     type: "default"
-    uri: "map/member"
-    sort_order: 30
+    uri: "@mymap"
+    sort_order: 16
     Translation:
       en:
         caption: "Map"
       ja_JP:
         caption: "マイマップ"
+  friend_navigation_map:
+    type: "friend"
+    uri: "@map_friend"
+    sort_order: 16
+    Translation:
+      en:
+        caption: "Map"
+      ja_JP:
+        caption: "マップ"

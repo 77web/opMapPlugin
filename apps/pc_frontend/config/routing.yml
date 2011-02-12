@@ -1,0 +1,12 @@
+map_friend:
+  url:     /map/member/:id
+  class:   sfDoctrineRoute
+  options: { model: Member, type: object }
+  param:   { module: map, action: member }
+  requirements:
+    id:        \d+
+    sf_method: [get, post]
+
+mymap:
+  url: /map/member
+  param: { module: map, action: member }
