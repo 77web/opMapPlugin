@@ -10,6 +10,11 @@ class opMapPluginMapActions extends sfActions
       $this->member = $this->getUser()->getMember();
     }
     $this->list = Doctrine::getTable("Geocode")->getMemberList($this->member->getId(), $this->getUser()->getMemberId(), 100);
+    
+    if(count($this->list)==0)
+    {
+      return sfView::ERROR;
+    }
 
   }
 }
