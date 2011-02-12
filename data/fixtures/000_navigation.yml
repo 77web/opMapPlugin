@@ -1,5 +1,5 @@
 Navigation:
-  default_navigation_diary:
+  default_navigation_map:
     type: "default"
     uri: "map/member"
     sort_order: 30
@@ -7,4 +7,4 @@ Navigation:
       en:
         caption: "Map"
       ja_JP:
-        caption: "地図"
+        caption: "マイマップ"
