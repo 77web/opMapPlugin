@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>opMapPlugin</name>
+ <channel>plugins.openpne.jp</channel>
+ <summary>ソーシャルマップ機能</summary>
+ <description>いわゆる小窓用に投稿されたGoogleMapURLを収集し、日記に投稿した地図情報をマップ上にまとめて表示する機能を提供。</description>
+ <lead>
+  <name>77web</name>
+  <user>77web</user>
+  <email />
+  <active>yes</active>
+ </lead>
+ <date>2011-02-12</date>
+ <time>13:36:59</time>
+ <version>
+  <release>0.9.0</release>
+  <api>0.9.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license>PHP</license>
+ <notes>beta release</notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="/" md5sum="d8f7a76b53343ca9be39268a66125a86" name="apps/mobile_frontend/modules/map/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="1d1896db53bc4b9e6041524948587543" name="apps/mobile_frontend/modules/map/actions/mapWinAction.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="1bd4f1eae9da08c1fccba0da02306355" name="apps/mobile_frontend/modules/map/config/security.yml" role="data" />
+   <file baseinstalldir="/" md5sum="1b5fef2e113dfc56f64cc114849ce548" name="apps/mobile_frontend/modules/map/templates/memberSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="6fb1df2c0052f02e86379733338d51cb" name="apps/pc_frontend/config/app.yml" role="data" />
+   <file baseinstalldir="/" md5sum="70711892d87fcb7795fb9a6ee04601f1" name="apps/pc_frontend/config/routing.yml" role="data" />
+   <file baseinstalldir="/" md5sum="d8f7a76b53343ca9be39268a66125a86" name="apps/pc_frontend/modules/map/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="1d1896db53bc4b9e6041524948587543" name="apps/pc_frontend/modules/map/actions/mapWinAction.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="133ba7360780eb133afab50c57d47acb" name="apps/pc_frontend/modules/map/config/security.yml" role="data" />
+   <file baseinstalldir="/" md5sum="566e3b83a31ddda4a5ae1503ad6884ac" name="apps/pc_frontend/modules/map/config/view.yml" role="data" />
+   <file baseinstalldir="/" md5sum="0151e93d5a78c46bfa7f63ad41134080" name="apps/pc_frontend/modules/map/templates/mapWinSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="130f5b4745a113d28d886b6ac7b828ec" name="apps/pc_frontend/modules/map/templates/memberError.php" role="data" />
+   <file baseinstalldir="/" md5sum="83d8ccf49a049e6783c324683e60b939" name="apps/pc_frontend/modules/map/templates/memberSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="d650fccc98d89572afb8d0759cd0ff1b" name="config/config.php" role="data" />
+   <file baseinstalldir="/" md5sum="103174e398e73b75b3fc596ce5b3109a" name="config/doctrine/schema.yml" role="data" />
+   <file baseinstalldir="/" md5sum="29079c5134fe78c0ea0ade019cf12b6f" name="data/fixtures/000_navigation.yml" role="data" />
+   <file baseinstalldir="/" md5sum="7544000554396032c689ca610cbd610b" name="i18n/messages.ja.xml" role="data" />
+   <file baseinstalldir="/" md5sum="f36de0e3ba3c70a9555327324f88c07c" name="lib/opDeleteMap.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="14c08783b6d82da6cfcc659b405f4bd6" name="lib/opRegisterMap.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="f302f6ba478b47a169d96277644e4b3b" name="lib/action/opMapPluginMapActions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="0f149218e04feedf20e5cf281d5f5612" name="lib/filter/doctrine/PluginGeocodeFormFilter.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="8637e3c868031bf5118f8300ae157a92" name="lib/form/doctrine/PluginGeocodeForm.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="6a300306c2cfa45010647f73fc697862" name="lib/model/doctrine/PluginGeocode.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="e2663bb51f10aa972f1cc55fd371fac1" name="lib/model/doctrine/PluginGeocodeTable.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="abe2f1fc9da42ae7e0350f2ac9e92d40" name="lib/task/opMapPluginInitTask.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="9007cebd5858d0081374ac881fe57057" name="web/css/map.css" role="data" />
+   <file baseinstalldir="/" md5sum="75c105b39574b97463ae58fac63725ba" name="web/img/mappointer.png" role="data" />
+   <file baseinstalldir="/" md5sum="918d819c43d68513d4f6857601447409" name="web/js/googlemap.js" role="data" />
+   <file baseinstalldir="/" md5sum="3062564904c5078ab017f08ffdc2f7c3" name="web/js/googlemap_edit.js" role="data" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.3</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.2.0</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.9.0</release>
+    <api>0.9.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2011-02-12</date>
+   <license>PHP</license>
+   <notes>beta release</notes>
+  </release>
+ </changelog>
+</package>
