@@ -6,6 +6,10 @@
         <source>%member%'s map</source>
         <target>%member%さんの地図</target>
       </trans-unit>
+      <trans-unit id="2">
+        <source>No geocode found.</source>
+        <target>位置情報はありません。</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

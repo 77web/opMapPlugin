@@ -11,8 +11,12 @@
 <h3><?php echo __('%member%\'s map', array('%member%'=>$member->getName())); ?></h3>
 </div>
 
+<?php if(count($list)>0): ?>
 <div id="map">
 </div>
+<?php else: ?>
+<p><?php echo __('No geocode found.'); ?></p>
+<?php endif; ?>
 
 
 </div>
